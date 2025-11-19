@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discovery lab | Istituto Aldini Valeriani</title>
+  <title>Lab IoT & STEM - Discovery Lab | Istituto Aldini Valeriani</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
@@ -14,16 +14,18 @@
     }
 
     :root {
-      --primary: #c51a4a;
-      --secondary: #00d4aa;
-      --dark: #0a0e27;
-      --light: #f8f9fa;
+      --primary: #2563eb;
+      --secondary: #06b6d4;
+      --accent: #8b5cf6;
+      --bg-light: #f8fafc;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: var(--light);
+      background: var(--bg-light);
+      color: var(--text-dark);
       overflow-x: hidden;
     }
 
@@ -35,36 +37,36 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 50%, #f0fdfa 100%);
     }
 
     .bg-animation::before {
       content: '';
       position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(197, 26, 74, 0.15) 0%, transparent 70%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
       border-radius: 50%;
-      top: -250px;
-      right: -250px;
-      animation: float 8s ease-in-out infinite;
+      top: -300px;
+      right: -300px;
+      animation: float 12s ease-in-out infinite;
     }
 
     .bg-animation::after {
       content: '';
       position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
       border-radius: 50%;
-      bottom: -200px;
-      left: -200px;
-      animation: float 10s ease-in-out infinite reverse;
+      bottom: -250px;
+      left: -250px;
+      animation: float 15s ease-in-out infinite reverse;
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, 30px); }
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, 30px) scale(1.1); }
     }
 
     /* Header Hero */
@@ -97,18 +99,30 @@
     .hero-content h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
 
     .hero-content p {
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 2rem;
-      font-weight: 300;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
 
     .btn {
@@ -121,14 +135,14 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       text-decoration: none;
       display: inline-block;
-      background: linear-gradient(135deg, var(--primary), #ff6b9d);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      box-shadow: 0 10px 30px rgba(197, 26, 74, 0.3);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(197, 26, 74, 0.5);
+      box-shadow: 0 15px 40px rgba(37, 99, 235, 0.35);
     }
 
     /* Scroll Indicator */
@@ -156,16 +170,17 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(10, 14, 39, 0.8);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
       padding: 1rem 2rem;
       z-index: 1000;
       transition: all 0.3s;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     nav.scrolled {
-      background: rgba(10, 14, 39, 0.95);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     }
 
     nav ul {
@@ -176,7 +191,7 @@
     }
 
     nav a {
-      color: white;
+      color: var(--text-dark);
       text-decoration: none;
       font-weight: 600;
       position: relative;
@@ -190,12 +205,12 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--secondary);
+      background: var(--primary);
       transition: width 0.3s;
     }
 
     nav a:hover {
-      color: var(--secondary);
+      color: var(--primary);
     }
 
     nav a:hover::after {
@@ -212,7 +227,7 @@
     .section-title {
       font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, white, var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -221,161 +236,175 @@
 
     .section-subtitle {
       font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-light);
       margin-bottom: 2rem;
       line-height: 1.6;
     }
 
     /* Intro Content */
     .intro-content {
-      background: rgba(255, 255, 255, 0.05);
+      background: white;
       border-radius: 20px;
       padding: 2.5rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.1);
       margin-bottom: 2rem;
     }
 
     .intro-content p {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-light);
       margin-bottom: 1.5rem;
     }
 
-    /* Specs Grid */
-    .specs-grid {
+    /* Activities Grid */
+    .activities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    .spec-card {
-      background: rgba(255, 255, 255, 0.05);
+    .activity-card {
+      background: white;
       border-radius: 15px;
       padding: 2rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(37, 99, 235, 0.1);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .spec-card:hover {
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .activity-card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--secondary);
-      box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
     }
 
-    .spec-card h3 {
+    .activity-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .activity-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .activity-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.8rem;
-      color: var(--secondary);
+      color: var(--text-dark);
     }
 
-    .spec-card p {
-      color: rgba(255, 255, 255, 0.8);
+    .activity-card p {
+      color: var(--text-light);
       line-height: 1.6;
       font-size: 0.95rem;
     }
 
-    /* Activities List */
-    .activities-list {
+    /* Tools Section */
+    .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .activity-item {
-      background: linear-gradient(135deg, rgba(197, 26, 74, 0.1), rgba(0, 212, 170, 0.05));
-      padding: 1.8rem;
+    .tool-card {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(139, 92, 246, 0.05));
+      padding: 2rem;
       border-radius: 15px;
-      border-left: 4px solid var(--secondary);
+      border-left: 4px solid var(--primary);
       transition: all 0.3s;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
     }
 
-    .activity-item:hover {
+    .tool-card:hover {
       transform: translateX(10px);
-      border-left-color: var(--primary);
-      background: linear-gradient(135deg, rgba(197, 26, 74, 0.15), rgba(0, 212, 170, 0.1));
+      border-left-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
-    .activity-item p {
-      color: rgba(255, 255, 255, 0.85);
+    .tool-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .tool-card p {
+      color: var(--text-light);
       line-height: 1.6;
       font-size: 1rem;
     }
 
-    /* CTA Section */
-    .cta-section {
-      background: rgba(255, 255, 255, 0.05);
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.3);
       margin-top: 3rem;
+      color: white;
     }
 
-    .cta-section h3 {
-      font-size: 1.8rem;
+    .contact-section h3 {
+      font-size: 2rem;
       margin-bottom: 1rem;
       color: white;
     }
 
-    .cta-section p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
+    .contact-section p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
     }
 
-    .info-box {
-      background: rgba(0, 212, 170, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      margin-top: 2rem;
-      border: 1px solid rgba(0, 212, 170, 0.3);
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .info-box.visible {
-      opacity: 1;
-      max-height: 500px;
-    }
-
-    .info-box p {
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-
-    .info-box a {
-      color: var(--secondary);
+    .contact-section a {
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      display: inline-block;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
-    .info-box a:hover {
-      color: var(--primary);
+    .contact-section a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+      border-color: white;
     }
 
     /* Footer */
     footer {
-      background: rgba(0, 0, 0, 0.3);
+      background: white;
       padding: 2rem;
       text-align: center;
-      margin-top: 5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     footer p {
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-light);
     }
 
     /* Responsive */
@@ -387,16 +416,28 @@
       }
 
       section {
-        padding: 4rem 1rem;
+        padding: 3rem 1rem;
       }
 
-      .intro-content, .cta-section {
+      .intro-content, .contact-section {
         padding: 2rem;
       }
 
-      .specs-grid, .activities-list {
+      .activities-grid, .tools-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    /* Cards entrance animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -406,18 +447,18 @@
   <nav id="navbar">
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#raspberry">Raspberry Pi 5</a></li>
-      <li><a href="#progetti">Attività</a></li>
-      <li><a href="#info">Informazioni</a></li>
+      <li><a href="#attivita">Attività</a></li>
+      <li><a href="#strumenti">Strumenti</a></li>
+      <li><a href="#contatti">Contatti</a></li>
     </ul>
   </nav>
 
   <header id="home">
     <div class="hero-content">
-      <h1>IOT & STEM</h1>
-      <h1>DISCOVERY LAB</h1>
-      <p>Innovazione, tecnologia e creatività in un solo spazio</p>
-      <a href="#raspberry" class="btn">Scopri di più</a>
+      <div class="hero-subtitle">Lab IoT & STEM</div>
+      <h1>Discovery Lab</h1>
+      <p>Il laboratorio dell'istituto dedicato alla pratica su IoT, elettronica e programmazione</p>
+      <a href="#attivita" class="btn">Scopri cosa facciamo</a>
     </div>
     <div class="scroll-indicator">
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,91 +467,77 @@
     </div>
   </header>
 
-  <section id="benvenuto">
-    <h2 class="section-title">Benvenuti nel nuovo laboratorio</h2>
-    
-    <div class="intro-content">
+  <section id="intro">
+    <div class="intro-content fade-in">
       <p>
-        Il nostro istituto ha inaugurato un laboratorio informatico completamente basato su 
-        <strong>Raspberry Pi 5</strong>, pensato per promuovere la didattica moderna e la sperimentazione tecnologica.
-      </p>
-      <p>
-        Qui gli studenti imparano a programmare, configurare sistemi Linux e sviluppare progetti di automazione e IoT.
+        Gli studenti lavorano direttamente con <strong>Raspberry Pi 5</strong>, <strong>Arduino</strong> e ambienti di simulazione come <strong>Wokwi</strong>, sviluppando prototipi e piccoli sistemi reali.
       </p>
     </div>
   </section>
 
-  <section id="raspberry">
-    <h2 class="section-title">Cosa sono i Raspberry Pi 5</h2>
-    <p class="section-subtitle">Un mini-computer con prestazioni da vero PC, ideale per studenti, maker e chiunque voglia imparare la programmazione in modo pratico e creativo.</p>
+  <section id="attivita">
+    <h2 class="section-title">Cosa facciamo</h2>
+    <p class="section-subtitle">Progetti pratici e competenze concrete per il mondo IoT e STEM</p>
     
-    <div class="specs-grid">
-      <div class="spec-card">
-        <h3>CPU</h3>
-        <p>ARM Cortex-A76 2.4GHz - Potenza e velocità per ogni tipo di progetto</p>
+    <div class="activities-grid">
+      <div class="activity-card fade-in">
+        <span class="activity-icon">🐍</span>
+        <h3>Programmazione</h3>
+        <p>Python, C/C++ per sviluppare software e script per sistemi embedded</p>
       </div>
-      <div class="spec-card">
-        <h3>GPU</h3>
-        <p>VideoCore VII con supporto 4K per grafica fluida e multimedia</p>
+      <div class="activity-card fade-in">
+        <span class="activity-icon">🖥️</span>
+        <h3>Raspberry Pi 5</h3>
+        <p>Progetti con Raspberry Pi 5 e sistemi Linux per applicazioni IoT avanzate</p>
       </div>
-      <div class="spec-card">
-        <h3>RAM</h3>
-        <p>Fino a 8GB di RAM LPDDR4X per multitasking e applicazioni complesse</p>
+      <div class="activity-card fade-in">
+        <span class="activity-icon">⚡</span>
+        <h3>Prototipazione</h3>
+        <p>Prototipazione elettronica con Arduino per soluzioni hardware personalizzate</p>
       </div>
-      <div class="spec-card">
-        <h3>Connettività</h3>
-        <p>Doppia porta HDMI, USB 3.0, PCIe per massima espandibilità</p>
+      <div class="activity-card fade-in">
+        <span class="activity-icon">🔌</span>
+        <h3>Circuiti e sensori</h3>
+        <p>Design e implementazione di circuiti con sensori per progetti IoT reali</p>
       </div>
-      <div class="spec-card">
-        <h3>Sistema Operativo</h3>
-        <p>Compatibilità con Raspberry Pi OS, Ubuntu e Debian</p>
+      <div class="activity-card fade-in">
+        <span class="activity-icon">🧪</span>
+        <h3>Simulazioni</h3>
+        <p>Test e simulazioni online per validare progetti prima della realizzazione fisica</p>
       </div>
     </div>
   </section>
 
-  <section id="progetti">
-    <h2 class="section-title">Progetti e attività</h2>
-    <p class="section-subtitle">Gli studenti possono utilizzare i Raspberry Pi 5 per una varietà di progetti pratici e formativi</p>
+  <section id="strumenti">
+    <h2 class="section-title">Strumenti</h2>
+    <p class="section-subtitle">Le tecnologie che usiamo ogni giorno nel laboratorio</p>
     
-    <div class="activities-list">
-      <div class="activity-item">
-        <p>Creare mini server web e gestire reti</p>
+    <div class="tools-grid">
+      <div class="tool-card fade-in">
+        <h3>Raspberry Pi 5</h3>
+        <p>Il coltellino svizzero dell'IoT – potenza computazionale e versatilità per ogni progetto</p>
       </div>
-      <div class="activity-item">
-        <p>Programmare in Python, Java, C++</p>
+      <div class="tool-card fade-in">
+        <h3>Arduino</h3>
+        <p>Per microcontrollori e sensori – la base perfetta per l'elettronica embedded</p>
       </div>
-      <div class="activity-item">
-        <p>Realizzare progetti di automazione e robotica</p>
-      </div>
-      <div class="activity-item">
-        <p>Simulare sistemi Linux e ambienti di sviluppo</p>
+      <div class="tool-card fade-in">
+        <h3>Wokwi</h3>
+        <p>Simulazioni senza hardware – testa i tuoi progetti online prima di costruirli</p>
       </div>
     </div>
   </section>
 
-  <section id="info">
-    <div class="cta-section">
-      <h3>Scopri di più</h3>
-      <p>Vuoi saperne di più sui Raspberry Pi 5 o sul nostro laboratorio?</p>
-      <button class="btn" id="showMore">Mostra informazioni</button>
-
-      <div class="info-box" id="extraInfo">
-        <p>
-          Il laboratorio è aperto a tutti gli studenti dell'indirizzo informatico.
-        </p>
-        <p>
-          Puoi visitare il sito ufficiale di Raspberry Pi per scoprire di più:<br>
-          🔗 <a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank">Vai al sito ufficiale Raspberry Pi 5</a>
-        </p>
-        <p>
-          Oppure richiedi informazioni al tuo docente referente tramite il modulo interno.
-        </p>
-      </div>
+  <section id="contatti">
+    <div class="contact-section">
+      <h3>Vuoi saperne di più?</h3>
+      <p>Contattaci per informazioni sul laboratorio e sulle attività</p>
+      <a href="mailto:labiot@avbo.it">labiot@avbo.it</a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Laboratorio Raspberry Pi 5 - Istituto Aldini Valeriani</p>
+    <p>© 2025 Lab IoT & STEM - Discovery Lab - Istituto Aldini Valeriani</p>
   </footer>
 
   <script>
@@ -531,31 +558,16 @@
       });
     });
 
-    // Show/hide info box
-    const btn = document.getElementById('showMore');
-    const infoBox = document.getElementById('extraInfo');
-    let visible = false;
-
-    btn.addEventListener('click', () => {
-      visible = !visible;
-      infoBox.classList.toggle('visible', visible);
-      btn.textContent = visible ? 'Nascondi informazioni' : 'Mostra informazioni';
-    });
-
     // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
         }
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.spec-card, .activity-item, .intro-content').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'all 0.6s ease-out';
+    document.querySelectorAll('.fade-in').forEach(el => {
       observer.observe(el);
     });
   </script>
