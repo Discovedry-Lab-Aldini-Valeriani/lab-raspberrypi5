@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio Raspberry Pi 5</title>
+  <style>
+    /* ---- RESET ---- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1b73e8, #00bfa6);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #1b73e8;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bfa6;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #1b73e8;
+      margin-bottom: 1rem;
+      border-left: 5px solid #00bfa6;
+      padding-left: 10px;
+    }
+
+    section p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: #1b73e8;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #00bfa6;
+    }
+
+    .info-box {
+      margin-top: 2rem;
+      display: none;
+      padding: 1rem;
+      background: #e8f4ff;
+      border-radius: 10px;
+      border-left: 5px solid #1b73e8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1b73e8;
+      color: white;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      section {
+        margin: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Laboratorio Raspberry Pi 5</h1>
+    <p>Innovazione, tecnologia e creatività in un solo spazio</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#raspberry">Raspberry Pi 5</a>
+    <a href="#progetti">Progetti</a>
+    <a href="#info">Scopri di più</a>
+  </nav>
+
+  <section id="home">
+    <h2>Benvenuti nel nuovo laboratorio</h2>
+    <p>
+      Il nostro istituto ha inaugurato un laboratorio informatico completamente basato su 
+      <b>Raspberry Pi 5</b>, pensato per promuovere la didattica moderna e la sperimentazione tecnologica.
+    </p>
+    <p>
+      Qui gli studenti imparano a programmare, configurare sistemi Linux e sviluppare progetti di automazione e IoT.
+    </p>
+  </section>
+
+  <section id="raspberry">
+    <h2>Cosa sono i Raspberry Pi 5</h2>
+    <p>
+      Il Raspberry Pi 5 è un mini-computer con prestazioni da vero PC:
+    </p>
+    <ul>
+      <li>CPU ARM Cortex-A76 2.4GHz</li>
+      <li>GPU VideoCore VII con supporto 4K</li>
+      <li>Fino a 8GB di RAM LPDDR4X</li>
+      <li>Doppia porta HDMI, USB 3.0, PCIe</li>
+      <li>Compatibilità con Raspberry Pi OS, Ubuntu e Debian</li>
+    </ul>
+    <p>
+      È ideale per studenti, maker e chiunque voglia imparare la programmazione in modo pratico e creativo.
+    </p>
+  </section>
+
+  <section id="progetti">
+    <h2>Progetti e attività</h2>
+    <p>
+      Gli studenti possono utilizzare i Raspberry Pi 5 per:
+    </p>
+    <ul>
+      <li>Creare mini server web e gestire reti</li>
+      <li>Programmare in Python, Java, C++</li>
+      <li>Realizzare progetti di automazione e robotica</li>
+      <li>Simulare sistemi Linux e ambienti di sviluppo</li>
+    </ul>
+  </section>
+
+  <section id="info">
+    <h2>Scopri di più</h2>
+    <p>
+      Vuoi saperne di più sui Raspberry Pi 5 o sul nostro laboratorio?  
+      Premi il pulsante qui sotto!
+    </p>
+    <a href="#" class="button" id="showMore">Mostra informazioni</a>
+
+    <div class="info-box" id="extraInfo">
+      <p>
+        Il laboratorio è aperto a tutti gli studenti dell’indirizzo informatico.  
+        Puoi visitare il sito ufficiale di Raspberry Pi per scoprire di più:
+      </p>
+      <p>
+        🔗 <a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank">Vai al sito ufficiale Raspberry Pi 5</a>
+      </p>
+      <p>
+        Oppure richiedi informazioni al tuo docente referente tramite il modulo interno.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Laboratorio Raspberry Pi 5 - Istituto Aldini</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('showMore');
+    const infoBox = document.getElementById('extraInfo');
+    let visible = false;
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      visible = !visible;
+      infoBox.style.display = visible ? 'block' : 'none';
+      btn.textContent = visible ? 'Nascondi informazioni' : 'Mostra informazioni';
+    });
+  </script>
+
+</body>
+</html>
