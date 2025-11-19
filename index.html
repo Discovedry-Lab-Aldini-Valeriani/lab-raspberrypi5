@@ -331,12 +331,22 @@
       border-left: 4px solid var(--primary);
       transition: all 0.3s;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      /* Assicura che le card abbiano altezza consistente nella griglia */
+      min-height: 180px;
     }
 
     .tool-card:hover {
       transform: translateX(10px);
       border-left-color: var(--accent);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Mantiene i bottoni leggermente più in basso e allineati tra le card */
+    .tool-card .btn {
+      margin-top: auto;       /* spinge il bottone verso il basso della card */
+      align-self: flex-start; /* mantiene l'allineamento a sinistra */
     }
 
     .tool-card h3 {
@@ -516,14 +526,19 @@
       <div class="tool-card fade-in">
         <h3>Raspberry Pi 5</h3>
         <p>Il coltellino svizzero dell'IoT – potenza computazionale e versatilità per ogni progetto</p>
+        <br><br>
+        <a class="btn" href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer" aria-label="Visita sito ufficiale Raspberry Pi">Sito ufficiale Raspberry Pi</a>
       </div>
       <div class="tool-card fade-in">
         <h3>Arduino</h3>
         <p>Per microcontrollori e sensori – la base perfetta per l'elettronica embedded</p>
+        <br><br>
+        <a class="btn" href="https://store.arduino.cc/?utm_source=google&utm_medium=cpc&utm_campaign=EU-Brand&gad_source=1&gad_campaignid=21378580483&gbraid=0AAAAACbEa85sHiqXlvSug9AZ4GqLOPmAj&gclid=CjwKCAiA8vXIBhAtEiwAf3B-g6bukTietRwaTWFI04yOtg7wu15UJzBBe4cxMlMJKOljUx4WMAALOhoCqUoQAvD_BwE" target="_blank" rel="noopener noreferrer" aria-label="Visita store Arduino">Store Arduino</a>
       </div>
       <div class="tool-card fade-in">
         <h3>Wokwi</h3>
         <p>Simulazioni senza hardware – testa i tuoi progetti online prima di costruirli</p>
+        <a class="btn" href="https://wokwi.com/" target="_blank" rel="noopener noreferrer" aria-label="Visita Wokwi">Wokwi</a>
       </div>
     </div>
   </section>
